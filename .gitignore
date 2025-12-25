@@ -206,15 +206,18 @@ marimo/_static/
 marimo/_lsp/
 __marimo__/
 
+# Inno Setup
+installer/output/
 
-output/
-
+# VS Code
 .vscode/
 
-docker/nginx/certs/*.crt
-docker/nginx/certs/*.key
+# nginix
+docker/nginx/certs/server.key
+docker/nginx/certs/server.crt
 
-
-docker/odoo/data/
-
+# Postgres
 docker/postgres/pgdata
+
+# Odoo
+docker/odoo/data
