@@ -210,3 +210,11 @@ __marimo__/
 output/
 
 .vscode/
+
+docker/nginx/certs/*.crt
+docker/nginx/certs/*.key
+
+
+docker/odoo/data/
+
+docker/postgres/pgdata
