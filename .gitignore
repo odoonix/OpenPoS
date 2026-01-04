@@ -212,6 +212,9 @@ installer/output/
 # VS Code
 .vscode/
 
+# User environment
+docker/odoo/.env
+
 # nginix
 docker/nginx/certs/server.key
 docker/nginx/certs/server.crt

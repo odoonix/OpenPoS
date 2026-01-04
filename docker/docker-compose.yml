@@ -33,6 +33,19 @@ services:
       - ./postgres/pgdata:/var/lib/postgresql/data
 
 
+  cups:
+    image: ghcr.io/odoonix/cups-epos-web
+    container_name: cups
+
+    environment:
+      PRINT_LOG: ${PRINT_LOG}
+      PRINT_TEMP_DIR: ${PRINT_TEMP_DIR}
+
+    volumes:
+      - ./cups/printer_output:/printer_output
+      - ./cups/etc:/etc/cups
+      - ./cups/spool:/var/spool/cups
+
   nginx:
     build: ./nginx
     container_name: odoo-nginx
@@ -43,8 +56,10 @@ services:
       - "80:80"
       - "443:443"
       - "5432:5432"
+      - "361:361"
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
       - ./nginx/conf.d:/etc/nginx/conf.d:ro
       - ./nginx/certs:/etc/nginx/certs
       - ./nginx/generate-cert.sh:/docker-entrypoint.d/10-generate-cert.sh
+
